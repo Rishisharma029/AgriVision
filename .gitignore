@@ -1,0 +1,85 @@
+# Dependencies
+node_modules/
+jspm_packages/
+web_modules/
+
+# Production Builds
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# Python Cache & Bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.egg-info/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+
+# Python Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+python-venv/
+
+# Environment Variables & Config Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+backend/leafsense.db
+
+# Logs & Temporary Files
+*.log
+logs/
+tmp/
+temp/
+backend/logs/
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.project
+.classpath
+.settings/
+
+# Operating System Files
+Thumbs.db
+Thumbs.db:encrypt
+ehthumbs.db
+ehthumbs_vista.db
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+Network Trash Folder
+Temporary Items
+.apdisk
