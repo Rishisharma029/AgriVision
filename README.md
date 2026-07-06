@@ -3,7 +3,7 @@
 > **LeafSense AI** is a production-grade diagnostic platform that combines computer vision, explainable AI (XAI), and offline-first edge architecture to classify crop foliage diseases and outline actionable organic & chemical treatment care sheets.
 
 
-DEMO LINK - https://rishisharma029.github.io/
+DEMO LINK - [https://rishisharma029.github.io/](https://rishisharma029.github.io/AgriVision/)
 
 ---
 
