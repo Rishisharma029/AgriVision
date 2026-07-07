@@ -2,8 +2,9 @@
 
 > **LeafSense AI** is a production-grade diagnostic platform that combines computer vision, explainable AI (XAI), and offline-first edge architecture to classify crop foliage diseases and outline actionable organic & chemical treatment care sheets.
 
-
-DEMO LINK - [https://rishisharma029.github.io/](https://rishisharma029.github.io/AgriVision/)
+### 🔗 Live Deployments
+* **Live Web Demo**: [https://Rishisharma029.github.io/AgriVision/](https://Rishisharma029.github.io/AgriVision/)
+* **Interactive API Spec**: [http://127.0.0.1:8050/docs](http://127.0.0.1:8050/docs) (when running locally)
 
 ---
 
@@ -35,29 +36,29 @@ The client-side React PWA runs fully independently of cloud storage, synchronizi
 
 ```mermaid
 graph TD
-    subgraph Frontend Client (PWA)
-        React[React 19 / TS] --> Router[React Router v6]
-        React --> Zustand[Zustand Stores]
-        Zustand --> Dexie[Dexie.js / IndexedDB]
+    subgraph "Frontend Client (PWA)"
+        React["React 19 / TS"] --> Router["React Router v6"]
+        React --> Zustand["Zustand Stores"]
+        Zustand --> Dexie["Dexie.js (IndexedDB)"]
     end
 
-    subgraph API Gateway
-        React -- Axios API Calls --> FastAPI[FastAPI Backend]
-        FastAPI --> RateLimit[Rate Limiting Middleware]
-        RateLimit --> Tracing[Tracing Middleware]
+    subgraph "API Gateway"
+        React -- "Axios API Calls" --> FastAPI["FastAPI Backend"]
+        FastAPI --> RateLimit["Rate Limiting Middleware"]
+        RateLimit --> Tracing["Tracing Middleware"]
     end
 
-    subgraph ML Inference Pipeline
-        FastAPI --> MagicBytes[Magic Bytes & Pillow Decoders]
-        MagicBytes --> HSVCheck[OpenCV HSV Foliage Check]
-        HSVCheck --> PyTorch[PyTorch MobileNetV2]
-        PyTorch --> TempScale[Temperature Scaling T=1.15]
-        PyTorch --> GradCAM[Grad-CAM Hook features.18]
+    subgraph "ML Inference Pipeline"
+        FastAPI --> MagicBytes["Magic Bytes & Pillow Decoders"]
+        MagicBytes --> HSVCheck["OpenCV HSV Foliage Check"]
+        HSVCheck --> PyTorch["PyTorch MobileNetV2"]
+        PyTorch --> TempScale["Temperature Scaling (T=1.15)"]
+        PyTorch --> GradCAM["Grad-CAM Hook (features.18)"]
     end
 
-    subgraph Data Access Layer
-        FastAPI --> Repos[Repository Classes]
-        Repos --> SQLite[(SQLite / leafsense.db)]
+    subgraph "Data Access Layer"
+        FastAPI --> Repos["Repository Classes"]
+        Repos --> SQLite[("SQLite (leafsense.db)")]
     end
 ```
 
@@ -110,12 +111,12 @@ The diagram below details the validation and inference workflow when an image pa
 ```mermaid
 sequenceDiagram
     autonumber
-    actor User as Agronomist (PWA)
-    participant API as FastAPI Backend
-    participant HSV as OpenCV Foliage Validator
-    participant CNN as PyTorch MobileNetV2
-    participant GCAM as Grad-CAM Extractor
-    participant DB as SQLite Care Guides
+    actor User as "Agronomist (PWA)"
+    participant API as "FastAPI Backend"
+    participant HSV as "OpenCV Foliage Validator"
+    participant CNN as "PyTorch MobileNetV2"
+    participant GCAM as "Grad-CAM Extractor"
+    participant DB as "SQLite Care Guides"
 
     User->>API: POST /api/v1/prediction/detect (Multipart Image)
     activate API
@@ -214,4 +215,4 @@ LeafSense AI incorporates strict verification guards to ensure diagnostic reliab
 ---
 
 ## 📄 License
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
