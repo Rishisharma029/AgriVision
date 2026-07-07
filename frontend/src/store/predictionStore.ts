@@ -2,6 +2,12 @@ import { create } from 'zustand'
 import axios from 'axios'
 import imageCompression from 'browser-image-compression'
 
+const getApiBaseUrl = () => {
+  if (typeof window === 'undefined') return ''
+  const isLocal = ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname) || window.location.hostname.startsWith('192.168.')
+  return isLocal ? '' : 'http://127.0.0.1:8050'
+}
+
 interface PredictionResult {
   request_id: string
   version: string
@@ -122,7 +128,7 @@ export const usePredictionStore = create<PredictionState>((set, get) => ({
       const formData = new FormData()
       formData.append('file', compressedFile, file.name)
 
-      const response = await axios.post<PredictionResult>('/api/v1/prediction/detect', formData, {
+      const response = await axios.post<PredictionResult>(`${getApiBaseUrl()}/api/v1/prediction/detect`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
