@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://Rishisharma029.github.io/AgriVision/sitemap.xml
